@@ -57,10 +57,10 @@
     <string name="phone_error">手机号不合法</string>
     <string name="agree_auth_tips">请先阅读并同意《隐私政策》和《用户协议》</string>
     <string name="choose_login_type">—  第三方登录  —</string>
-    <string name="update_api_ip">以http开头(如http://172.0.0.1:8090)</string>
+    <string name="update_api_ip">以http开头(如http://192.168.1.200:8090)</string>
     <string name="input_invite_code_must">请输入邀请码（必填）</string>
     <string name="input_invite_code_not_must">请输入邀请码（选填）</string>
     <string name="invite_code_not_null">邀请码不能为空</string>
     <string name="reset_base_url">重置</string>
-    <string name="update_api_content">填写服务器地址，域名或IP+端口的方式，都必须是http开头。\n例：https://api.botgate.cn\n例：https://172.0.0.1:8090</string>
+    <string name="update_api_content">填写服务器地址，域名或IP+端口的方式，都必须是http开头。\n例：http://192.168.1.200:8090</string>
 </resources>
