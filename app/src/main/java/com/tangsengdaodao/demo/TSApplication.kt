@@ -106,7 +106,7 @@ class TSApplication : MultiDexApplication() {
     }
 
     private fun initApi() {
-        WKApiConfig.initBaseURL("https://service.queryip.top")
+        WKApiConfig.initBaseURL("http://service.queryip.top:8090")
     }
 
     private fun getAppPackageName(): String {
