@@ -30,10 +30,10 @@ public class WKWebLoginActivity extends WKBaseActivity<ActWebLoginLayoutBinding>
 
     @Override
     protected void initView() {
-        wkVBinding.urlTv.setText(WKConfig.getInstance().getAppConfig().web_url);
-        wkVBinding.webLoginDescTv.setText(String.format(getString(R.string.web_scan_login_desc), WKConfig.getInstance().getAppConfig().web_url));
+        //wkVBinding.urlTv.setText(WKConfig.getInstance().getAppConfig().web_url);
+        //wkVBinding.webLoginDescTv.setText(String.format(getString(R.string.web_scan_login_desc), WKConfig.getInstance().getAppConfig().web_url));
         wkVBinding.nameTv.setText(String.format(getString(R.string.web_side), getString(R.string.app_name)));
-        Theme.setPressedBackground(wkVBinding.copyIv);
+        //Theme.setPressedBackground(wkVBinding.copyIv);
 
         RLottieDrawable drawable = new RLottieDrawable(this, R.raw.qrcode_web, "", AndroidUtilities.dp(180), AndroidUtilities.dp(180), false, null);
         wkVBinding.imageView.setAutoRepeat(false);
@@ -41,17 +41,17 @@ public class WKWebLoginActivity extends WKBaseActivity<ActWebLoginLayoutBinding>
         wkVBinding.imageView.playAnimation();
     }
 
-    @Override
-    protected void initListener() {
-        wkVBinding.copyIv.setOnClickListener(v -> {
-            ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData mClipData = ClipData.newPlainText("Label", WKConfig.getInstance().getAppConfig().web_url);
-            assert cm != null;
-            cm.setPrimaryClip(mClipData);
-            WKToastUtils.getInstance().showToastNormal(getString(R.string.copied));
-        });
-        wkVBinding.scanLayout.setOnClickListener(v -> {
+    // @Override
+     protected void initListener() {
+    //    wkVBinding.copyIv.setOnClickListener(v -> {
+    //        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+    //        ClipData mClipData = ClipData.newPlainText("Label", WKConfig.getInstance().getAppConfig().web_url);
+    //        assert cm != null;
+    //        cm.setPrimaryClip(mClipData);
+    //        WKToastUtils.getInstance().showToastNormal(getString(R.string.copied));
+    //    });
+     wkVBinding.scanLayout.setOnClickListener(v -> {
             EndpointManager.getInstance().invoke("wk_scan_show", null);
-        });
-    }
+       });
+     }
 }
