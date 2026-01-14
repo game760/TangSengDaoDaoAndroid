@@ -1,4 +1,4 @@
-package com.tangsengdaodao.demo2026
+package com.tangsengdaodao.demo
 
 import android.app.Activity
 import android.app.ActivityManager
@@ -106,13 +106,7 @@ class TSApplication : MultiDexApplication() {
     }
 
     private fun initApi() {
-        var apiURL = WKSharedPreferencesUtil.getInstance().getSP("api_base_url")
-        if (TextUtils.isEmpty(apiURL)) {
-            apiURL = "https://service.queryip.top"
-            WKApiConfig.initBaseURL(apiURL)
-        } else {
-            WKApiConfig.initBaseURLIncludeIP(apiURL)
-        }
+        WKApiConfig.initBaseURL("https://service.queryip.top")
     }
 
     private fun getAppPackageName(): String {

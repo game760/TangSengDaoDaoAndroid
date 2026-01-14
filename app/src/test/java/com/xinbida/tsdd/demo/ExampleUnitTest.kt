@@ -1,4 +1,4 @@
-package com.tangsengdaodao.demo2026
+package com.tangsengdaodao.demo
 
 import org.junit.Test
 
