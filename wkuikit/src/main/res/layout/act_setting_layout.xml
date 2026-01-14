@@ -164,14 +164,15 @@
 
                         <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
                     </LinearLayout>
-
+					
+					<!--
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="10dp"
                         android:visibility="visible"
                         android:background="@color/homeColor" />
 
-
+					
                     <LinearLayout
                         android:id="@+id/moduleLayout"
                         style="@style/layoutBg">
@@ -211,7 +212,7 @@
                         <androidx.appcompat.widget.AppCompatImageView style="@style/arrow_right_iv" />
 
                     </LinearLayout>
-
+                   -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="10dp"

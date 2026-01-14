@@ -53,11 +53,11 @@ public class WKAboutActivity extends WKBaseActivity<ActAboutLayoutBinding> {
         wkVBinding.appNameTv.setText(R.string.app_name);
     }
 
-    @Override
-    protected void initListener() {
-        wkVBinding.avatarView.setSize(80);
-        wkVBinding.avatarView.showAvatar(WKSystemAccount.system_team, WKChannelType.PERSONAL);
-    }
+    // @Override
+    // protected void initListener() {
+    //    wkVBinding.avatarView.setSize(80);
+    //    wkVBinding.avatarView.showAvatar(WKSystemAccount.system_team, WKChannelType.PERSONAL);
+   // }
 
     private void checkNewVersion(boolean isShowDialog) {
         WKCommonModel.getInstance().getAppNewVersion(isShowDialog, version -> {

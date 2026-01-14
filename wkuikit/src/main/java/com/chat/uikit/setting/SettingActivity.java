@@ -84,7 +84,7 @@ public class SettingActivity extends WKBaseActivity<ActSettingLayoutBinding> {
                 WKIM.getInstance().getMsgManager().clearAll();
             }
         }));
-        SingleClickUtil.onSingleClick(wkVBinding.moduleLayout, view1 -> startActivity(new Intent(this, AppModulesActivity.class)));
+        // SingleClickUtil.onSingleClick(wkVBinding.moduleLayout, view1 -> startActivity(new Intent(this, AppModulesActivity.class)));
         SingleClickUtil.onSingleClick(wkVBinding.aboutLayout, view1 -> startActivity(new Intent(this, WKAboutActivity.class)));
         SingleClickUtil.onSingleClick(wkVBinding.fontSizeLayout, view1 -> startActivity(new Intent(this, WKSetFontSizeActivity.class)));
         WKCommonModel.getInstance().getAppNewVersion(false, version -> {
@@ -105,12 +105,12 @@ public class SettingActivity extends WKBaseActivity<ActSettingLayoutBinding> {
             intent.putExtra("handle_type", 2);
             startActivity(intent);
         });
-        SingleClickUtil.onSingleClick(wkVBinding.thirdShareLayout, view1 -> {
-            Intent intent = new Intent(this, WKWebViewActivity.class);
-            intent.putExtra("url", WKApiConfig.baseWebUrl + "sdkinfo.html");
-            startActivity(intent);
-        });
-        SingleClickUtil.onSingleClick(wkVBinding.errorLogLayout, view1 -> startActivity(new Intent(this, ErrorLogsActivity.class)));
+        // SingleClickUtil.onSingleClick(wkVBinding.thirdShareLayout, view1 -> {
+         //   Intent intent = new Intent(this, WKWebViewActivity.class);
+         //   intent.putExtra("url", WKApiConfig.baseWebUrl + "sdkinfo.html");
+          //  startActivity(intent);
+        // });
+        // SingleClickUtil.onSingleClick(wkVBinding.errorLogLayout, view1 -> startActivity(new Intent(this, ErrorLogsActivity.class)));
 
     }
 
