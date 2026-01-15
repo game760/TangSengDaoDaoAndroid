@@ -48,7 +48,7 @@ import java.util.Objects;
  */
 public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> implements LoginContract.LoginView {
     private WKAPPConfig wkappConfig;
-    private String code = "0086";
+    private String code = "1";
     private LoginPresenter loginPresenter;
 
     @Override
@@ -93,12 +93,12 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
                 wkVBinding.nameEt.setText(userInfoEntity.phone);
                 wkVBinding.nameEt.setSelection(userInfoEntity.phone.length());
 
-                String zone = WKConfig.getInstance().getUserInfo().zone;
-                if (!TextUtils.isEmpty(zone)) {
-                    code = zone;
-                    String codeName = code.substring(2);
-                    wkVBinding.codeTv.setText(String.format("+%s", codeName));
-                }
+               // String zone = WKConfig.getInstance().getUserInfo().zone;
+               // if (!TextUtils.isEmpty(zone)) {
+               //     code = zone;
+               //     String codeName = code.substring(2);
+               //     wkVBinding.codeTv.setText(String.format("+%s", codeName));
+               // }
             }
         }
         wkVBinding.loginTitleTv.setText(String.format(getString(R.string.login_title), getString(R.string.app_name)));
@@ -143,7 +143,8 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
             loadingPopup.show();
             loadingPopup.setTitle(getString(R.string.logging_in));
             String name = Objects.requireNonNull(wkVBinding.nameEt.getText()).toString();
-            loginPresenter.login(code + name, wkVBinding.pwdEt.getText().toString());
+            //loginPresenter.login(code + name, wkVBinding.pwdEt.getText().toString());
+			loginPresenter.login(name, wkVBinding.pwdEt.getText().toString());
         });
         SingleClickUtil.onSingleClick(wkVBinding.registerTv, v -> startActivity(new Intent(this, WKRegisterActivity.class)));
         SingleClickUtil.onSingleClick(wkVBinding.chooseCodeTv, v -> {
@@ -293,7 +294,7 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
             assert entity != null;
             code = entity.code;
             String codeName = code.substring(2);
-            wkVBinding.codeTv.setText(String.format("+%s", codeName));
+         //   wkVBinding.codeTv.setText(String.format("+%s", codeName));
         }
     });
 
