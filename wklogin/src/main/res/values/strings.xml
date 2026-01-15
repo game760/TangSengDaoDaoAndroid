@@ -14,12 +14,12 @@
     <string name="register">注册</string>
     <string name="register_app">欢迎注册%s</string>
     <string name="get_verf_code">获取验证码</string>
-    <string name="has_account">已有账号？请</string>
+    <string name="has_account">已有手机号？请</string>
     <string name="login">登录</string>
     <string name="wk_login_search">搜索</string>
     <string name="choose_country">选择国家或地区</string>
     <string name="pwd_length_error">密码长度必须是6～16位</string>
-    <string name="account_exist">该账号已存在</string>
+    <string name="account_exist">该手机号已存在</string>
     <string name="recapture">重新获取</string>
     <string name="wklogin_perfect_userinfo">完善个人资料</string>
     <string name="must_input_name">名字（必填）</string>
@@ -37,7 +37,7 @@
     <string name="auth_phone">验证您的手机号</string>
     <string name="auth_phone_tips">%s会发送短信验证手机号码，请输入您的验证码</string>
     <string name="logging_in">登录中</string>
-    <string name="wk_ban">您的账号已被封禁，如需解封请联系后台管理员</string>
+    <string name="wk_ban">您的手机号已被封禁，如需解封请联系后台管理员</string>
     <string name="phone_notice_open">手机通知已开启</string>
     <string name="phone_notice_close">手机通知已关闭</string>
     <string name="phone_mute">手机静音</string>
