@@ -63,4 +63,5 @@
     <string name="invite_code_not_null">邀请码不能为空</string>
     <string name="reset_base_url">重置</string>
     <string name="update_api_content">填写服务器地址，域名或IP+端口的方式，都必须是http开头。\n例：http://192.168.1.200:8090</string>
+	<string name="auto_fill_code_tips">已开启验证码自动填充</string>
 </resources>

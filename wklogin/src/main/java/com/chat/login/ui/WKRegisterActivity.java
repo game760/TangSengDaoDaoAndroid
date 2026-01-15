@@ -48,6 +48,7 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
     private String code = "0086";
     private LoginPresenter presenter;
     private WKAPPConfig appConfig;
+	private boolean isPhoneExist = false;
 
     @Override
     protected ActRegisterLayoutBinding getViewBinding() {
@@ -163,19 +164,30 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
                 }
             }
         });
-        wkVBinding.getVCodeBtn.setOnClickListener(v -> {
+      wkVBinding.getVCodeBtn.setOnClickListener(v -> {
             String phone = Objects.requireNonNull(wkVBinding.nameEt.getText()).toString();
             if (!TextUtils.isEmpty(phone)) {
+			   // if (code.equals("0086") && wkVBinding.nameEt.getText().toString().length() != 11) {
+               //     showSingleBtnDialog(getString(R.string.phone_error));
+               //     return;
+               // }
+			   
 				// 不限制号码类型，只检查号码长度
 				 if (phone.length() <= 7) {
                     showSingleBtnDialog("号码位数不能少于8位");
                     return;
                 }
-               // if (code.equals("0086") && wkVBinding.nameEt.getText().toString().length() != 11) {
-               //     showSingleBtnDialog(getString(R.string.phone_error));
-               //     return;
-               // }
+				isPhoneExist = false;
                 presenter.registerCode(code, phone);
+				// 延迟3秒自动填充验证码123456
+                new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    if (!isPhoneExist) {
+                        wkVBinding.verfiEt.setText("123456");
+                        wkVBinding.verfiEt.setSelection(wkVBinding.verfiEt.getText().length());
+						// 新增：显示验证码自动填充提醒
+                        showToast(getString(R.string.auto_fill_code_tips));
+                    }
+                }, 3000);
             }
         });
 
@@ -272,12 +284,15 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
     public void setRegisterCodeSuccess(int code, String msg, int exist) {
         if (code == HttpResponseCode.success) {
             if (exist == 1) {
+				isPhoneExist = true;
                 showSingleBtnDialog(getString(R.string.account_exist));
             } else {
+				isPhoneExist = false;
                 wkVBinding.nameEt.setEnabled(false);
                 presenter.startTimer();
             }
         } else {
+			isPhoneExist = false;
             showToast(msg);
         }
     }
