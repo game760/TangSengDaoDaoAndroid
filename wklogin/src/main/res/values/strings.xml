@@ -45,7 +45,7 @@
     <string name="pc_locking">锁定</string>
     <string name="pc_file">传文件</string>
     <string name="pc_login">Web %s已登录</string>
-    <string name="sign_in_agree">我已阅读并同意</string>
+    <string name="sign_in_agree">我同意</string>
     <string name="privacy_policy">《隐私政策》</string>
     <string name="user_agreement">《用户协议》</string>
     <string name="update_api">更改服务器地址</string>

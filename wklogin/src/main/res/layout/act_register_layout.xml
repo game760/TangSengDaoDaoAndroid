@@ -40,7 +40,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp">
 
-
+            <!--
             <LinearLayout
                 android:id="@+id/chooseCodeTv"
                 android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
                 android:layout_height="15dp"
                 android:layout_gravity="center_vertical"
                 android:background="#d8d8d8" />
-
+                -->
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/nameEt"
                 android:layout_width="match_parent"
@@ -261,7 +261,7 @@
             android:layout_gravity="center"
             android:text="@string/login"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/font_size_13" />
+            android:textSize="@dimen/font_size_14" />
     </LinearLayout>
 
 </RelativeLayout>

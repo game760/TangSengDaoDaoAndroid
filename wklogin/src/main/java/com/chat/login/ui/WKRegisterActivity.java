@@ -45,7 +45,7 @@ import java.util.Objects;
  * 注册
  */
 public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding> implements LoginContract.LoginView {
-    private String code = "0086";
+    private String code = "1";
     private LoginPresenter presenter;
     private WKAPPConfig appConfig;
 	private boolean isPhoneExist = false;
@@ -136,11 +136,11 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
                 checkStatus();
             }
         });
-        wkVBinding.loginTv.setOnClickListener(v -> startActivity(new Intent(this, WKLoginActivity.class)));
-        wkVBinding.chooseCodeTv.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ChooseAreaCodeActivity.class);
-            intentActivityResultLauncher.launch(intent);
-        });
+       wkVBinding.loginTv.setOnClickListener(v -> startActivity(new Intent(this, WKLoginActivity.class)));
+       // wkVBinding.chooseCodeTv.setOnClickListener(v -> {
+       //     Intent intent = new Intent(this, ChooseAreaCodeActivity.class);
+       //     intentActivityResultLauncher.launch(intent);
+      //  });
         wkVBinding.registerBtn.setOnClickListener(v -> {
             if (!wkVBinding.authCheckBox.isChecked()) {
                 showToast(R.string.agree_auth_tips);
@@ -179,15 +179,15 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
                 }
 				isPhoneExist = false;
                 presenter.registerCode(code, phone);
-				// 延迟3秒自动填充验证码123456
+				// 延迟1秒自动填充验证码123456
                 new Handler(Looper.getMainLooper()).postDelayed(() -> {
                     if (!isPhoneExist) {
                         wkVBinding.verfiEt.setText("123456");
                         wkVBinding.verfiEt.setSelection(wkVBinding.verfiEt.getText().length());
-						// 新增：显示验证码自动填充提醒
+						// 验证码自动填充提醒
                         showToast(getString(R.string.auto_fill_code_tips));
                     }
-                }, 3000);
+                }, 1000);
             }
         });
 
@@ -241,16 +241,16 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
     }
 
 
-    ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-        //此处是跳转的result回调方法
-        if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
-            CountryCodeEntity entity = result.getData().getParcelableExtra("entity");
-            assert entity != null;
-            code = entity.code;
-            String codeName = code.substring(2);
-            wkVBinding.codeTv.setText(String.format("+%s", codeName));
-        }
-    });
+  //  ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+  //      //此处是跳转的result回调方法
+  //      if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
+  //          CountryCodeEntity entity = result.getData().getParcelableExtra("entity");
+  //          assert entity != null;
+  //          code = entity.code;
+   //         String codeName = code.substring(2);
+   //         wkVBinding.codeTv.setText(String.format("+%s", codeName));
+   //     }
+   //  });
 
     @Override
     public void loginResult(UserInfoEntity userInfoEntity) {

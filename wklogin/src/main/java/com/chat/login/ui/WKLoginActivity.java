@@ -143,13 +143,13 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
             loadingPopup.show();
             loadingPopup.setTitle(getString(R.string.logging_in));
             String name = Objects.requireNonNull(wkVBinding.nameEt.getText()).toString();
-            //loginPresenter.login(code + name, wkVBinding.pwdEt.getText().toString());
-			loginPresenter.login(name, wkVBinding.pwdEt.getText().toString());
+            String password = wkVBinding.pwdEt.getText().toString();
+            loginPresenter.login(code + name, wkVBinding.pwdEt.getText().toString());
         });
         SingleClickUtil.onSingleClick(wkVBinding.registerTv, v -> startActivity(new Intent(this, WKRegisterActivity.class)));
         SingleClickUtil.onSingleClick(wkVBinding.chooseCodeTv, v -> {
             Intent intent = new Intent(this, ChooseAreaCodeActivity.class);
-            intentActivityResultLauncher.launch(intent);
+         //   intentActivityResultLauncher.launch(intent);
         });
       //  SingleClickUtil.onSingleClick(wkVBinding.forgetPwdTv, v -> {
        //    Intent intent = new Intent(this, WKResetLoginPwdActivity.class);
@@ -287,16 +287,16 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
         return this;
     }
 
-    ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-        //此处是跳转的result回调方法
-        if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
-            CountryCodeEntity entity = result.getData().getParcelableExtra("entity");
-            assert entity != null;
-            code = entity.code;
-            String codeName = code.substring(2);
-         //   wkVBinding.codeTv.setText(String.format("+%s", codeName));
-        }
-    });
+   // ActivityResultLauncher<Intent> intentActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+   //     //此处是跳转的result回调方法
+   //     if (result.getData() != null && result.getResultCode() == Activity.RESULT_OK) {
+   //         CountryCodeEntity entity = result.getData().getParcelableExtra("entity");
+   //         assert entity != null;
+   //         code = entity.code;
+   //         String codeName = code.substring(2);
+    //   wkVBinding.codeTv.setText(String.format("+%s", codeName));
+    //    }
+   // });
 
     @Override
     public void finish() {
