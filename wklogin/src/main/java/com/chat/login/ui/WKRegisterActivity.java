@@ -166,10 +166,15 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
         wkVBinding.getVCodeBtn.setOnClickListener(v -> {
             String phone = Objects.requireNonNull(wkVBinding.nameEt.getText()).toString();
             if (!TextUtils.isEmpty(phone)) {
-                if (code.equals("0086") && wkVBinding.nameEt.getText().toString().length() != 11) {
-                    showSingleBtnDialog(getString(R.string.phone_error));
+				// 不限制号码，只检查号码长度
+				 if (phone.length() <= 7) {
+                    showSingleBtnDialog("号码号位数不能少于8位");
                     return;
                 }
+               // if (code.equals("0086") && wkVBinding.nameEt.getText().toString().length() != 11) {
+               //     showSingleBtnDialog(getString(R.string.phone_error));
+               //     return;
+               // }
                 presenter.registerCode(code, phone);
             }
         });
