@@ -71,7 +71,7 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
                 object : NormalClickableSpan.IClick {
                     override fun onClick(view: View) {
                         showWebView(
-                            WKApiConfig.baseWebUrl + "user_agreement.html"
+                            "http://open.queryip.top/user_agreement.html"
                         )
                     }
                 }), userAgreementIndex, userAgreementIndex + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -83,7 +83,9 @@ class MainActivity : WKBaseActivity<ActivityMainBinding>() {
                 NormalClickableContent(NormalClickableContent.NormalClickableTypes.Other, ""),
                 object : NormalClickableSpan.IClick {
                     override fun onClick(view: View) {
-                        WKApiConfig.baseWebUrl + "privacy_policy.html"
+					showWebView(
+                        "http://open.queryip.top/privacy_policy.html"
+						)
                     }
                 }), privacyPolicyIndex, privacyPolicyIndex + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
