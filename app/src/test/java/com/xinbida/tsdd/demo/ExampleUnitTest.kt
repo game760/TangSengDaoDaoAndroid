@@ -1,4 +1,4 @@
-package com.tangsengdaodao.demo
+package com.daodao.openim
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.tangsengdaodao.demo
+package com.daodao.openim
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.tangsengdaodao.demo", appContext.packageName)
+        assertEquals("com.daodao.openim", appContext.packageName)
     }
 }
