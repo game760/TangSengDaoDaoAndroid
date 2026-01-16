@@ -173,8 +173,8 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
                // }
 			   
 				// 不限制号码类型，只检查号码长度
-				 if (phone.length() <= 7) {
-                    showSingleBtnDialog("号码位数不能少于8位");
+				 if (phone.length() <= 5) {
+                    showSingleBtnDialog("号码位数不能少于6位");
                     return;
                 }
 				isPhoneExist = false;
@@ -187,7 +187,7 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
 						// 验证码自动填充提醒
                         showToast(getString(R.string.auto_fill_code_tips));
                     }
-                }, 1000);
+                }, 1500);
             }
         });
 
