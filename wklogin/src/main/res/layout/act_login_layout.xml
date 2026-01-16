@@ -74,6 +74,7 @@
                 android:layout_gravity="center_vertical"
                 android:background="#d8d8d8" />
             -->
+
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/nameEt"
                 android:layout_width="match_parent"
@@ -81,9 +82,9 @@
                 android:background="@color/transparent"
                 android:gravity="center_vertical"
                 android:hint="@string/hint_name"
-                android:inputType="phone"
+                android:inputType="textNoSuggestions"
                 android:maxLength="20"
-                android:paddingStart="10dp"
+                android:paddingStart="0dp"
                 android:paddingEnd="0dp"
                 android:textColor="@color/colorDark"
                 android:textColorHint="@color/color999"
