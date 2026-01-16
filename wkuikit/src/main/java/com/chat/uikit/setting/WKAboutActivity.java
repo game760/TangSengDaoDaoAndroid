@@ -34,17 +34,17 @@ public class WKAboutActivity extends WKBaseActivity<ActAboutLayoutBinding> {
     @Override
     protected void initView() {
 
-        SingleClickUtil.onSingleClick(wkVBinding.icpTV, view1 -> {
-            // 隐私政策
-            showWebView("https://beian.miit.gov.cn/#/home");
-        });
+       // SingleClickUtil.onSingleClick(wkVBinding.icpTV, view1 -> {
+       //     // 隐私政策
+       //     showWebView("https://beian.miit.gov.cn/#/home");
+       // });
         SingleClickUtil.onSingleClick(wkVBinding.privacyPolicyLayout, view1 -> {
             // 隐私政策
-            showWebView(WKApiConfig.baseWebUrl + "privacy_policy.html");
+            showWebView("http://open.queryip.top/privacy_policy.html");
         });
         SingleClickUtil.onSingleClick(wkVBinding.userAgreementLayout, view1 -> {
             // 用户协议
-            showWebView(WKApiConfig.baseWebUrl + "user_agreement.html");
+            showWebView("http://open.queryip.top/user_agreement.html");
         });
         SingleClickUtil.onSingleClick(wkVBinding.checkNewVersionLayout, view1 -> checkNewVersion(true));
         checkNewVersion(false);
