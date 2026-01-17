@@ -102,8 +102,8 @@ public class WKLoginActivity extends WKBaseActivity<ActLoginLayoutBinding> imple
             }
         }
         wkVBinding.loginTitleTv.setText(String.format(getString(R.string.login_title), getString(R.string.app_name)));
-        wkVBinding.privacyPolicyTv.setOnClickListener(v -> showWebView("http://open.queryip.top/privacy_policy.html"));
-        wkVBinding.userAgreementTv.setOnClickListener(v -> showWebView("http://open.queryip.top/user_agreement.html"));
+        wkVBinding.privacyPolicyTv.setOnClickListener(v -> showWebView("https://open.queryip.top/privacy_policy.html"));
+        wkVBinding.userAgreementTv.setOnClickListener(v -> showWebView("https://open.queryip.top/user_agreement.html"));
         //  EndpointManager.getInstance().invoke("other_login_view", new OtherLoginViewMenu(this, wkVBinding.otherView));
     }
 

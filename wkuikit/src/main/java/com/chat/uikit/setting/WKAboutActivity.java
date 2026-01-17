@@ -40,11 +40,11 @@ public class WKAboutActivity extends WKBaseActivity<ActAboutLayoutBinding> {
        // });
         SingleClickUtil.onSingleClick(wkVBinding.privacyPolicyLayout, view1 -> {
             // 隐私政策
-            showWebView("http://open.queryip.top/privacy_policy.html");
+            showWebView("https://open.queryip.top/privacy_policy.html");
         });
         SingleClickUtil.onSingleClick(wkVBinding.userAgreementLayout, view1 -> {
             // 用户协议
-            showWebView("http://open.queryip.top/user_agreement.html");
+            showWebView("https://open.queryip.top/user_agreement.html");
         });
         SingleClickUtil.onSingleClick(wkVBinding.checkNewVersionLayout, view1 -> checkNewVersion(true));
         checkNewVersion(false);
