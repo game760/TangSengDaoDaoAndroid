@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <!-- 允许特定域名的明文流量（替换为扫码登录依赖的实际域名） -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">service.queryip.top</domain>
+        <!-- 如有多个域名，继续添加 -->
+        <domain includeSubdomains="true">another-scan-domain.com</domain>
+    </domain-config>
+</network-security-config>
