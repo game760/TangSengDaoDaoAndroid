@@ -5,7 +5,7 @@
     <string name="name_not_null">请输入名称</string>
     <string name="nickname_not_null">昵称不能为空</string>
     <string name="pwd_not_null">请输入密码</string>
-    <string name="web_login_desc">网页版%s登录确认</string>
+    <string name="web_login_desc">电脑端%s登录确认</string>
     <string name="login_sure">确认登录</string>
     <string name="cancel_login">取消登录</string>
     <string name="login_title">登录 %s</string>
@@ -49,9 +49,9 @@
     <string name="privacy_policy">《隐私政策》</string>
     <string name="user_agreement">《用户协议》</string>
     <string name="update_api">更改服务器地址</string>
-    <string name="web_url">Web版网址</string>
+    <string name="web_url">电脑端网址</string>
     <string name="qr_scan_login">扫描二维码登录</string>
-    <string name="web_side">%s网页端</string>
+    <string name="web_side">%s电脑端</string>
     <string name="web_scan_login_desc">请使用浏览器访问%s，然后扫描二维码登录。为了您更好的体验，建议使用谷歌浏览器。</string>
     <string name="copied">已复制</string>
     <string name="phone_error">账号不合法</string>
