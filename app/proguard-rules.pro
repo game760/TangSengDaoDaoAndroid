@@ -309,3 +309,15 @@
 -keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
   **[] $VALUES;  public *;
 }
+
+
+# 保留小米推送SDK的所有类、方法和成员，避免R8对其进行激进优化/混淆
+-keep class com.xiaomi.push.** { *; }
+-keep class com.xiaomi.mipush.** { *; }
+
+# 禁用对小米推送SDK的未引用类/方法警告，消除当前R8警告
+-dontwarn com.xiaomi.push.**
+-dontwarn com.xiaomi.mipush.**
+
+# 保留栈映射表属性，提升R8对旧字节码的兼容性
+-keepattributes StackMapTable
