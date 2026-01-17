@@ -78,8 +78,8 @@ public class WKRegisterActivity extends WKBaseActivity<ActRegisterLayoutBinding>
         wkVBinding.authCheckBox.setEnabled(true);
         wkVBinding.authCheckBox.setChecked(false, true);
 
-        wkVBinding.privacyPolicyTv.setOnClickListener(v -> showWebView("http://open.queryip.top/privacy_policy.html"));
-        wkVBinding.userAgreementTv.setOnClickListener(v -> showWebView("http://open.queryip.top/user_agreement.html"));
+        wkVBinding.privacyPolicyTv.setOnClickListener(v -> showWebView("https://open.queryip.top/privacy_policy.html"));
+        wkVBinding.userAgreementTv.setOnClickListener(v -> showWebView("https://open.queryip.top/user_agreement.html"));
         wkVBinding.registerAppTv.setText(String.format(getString(R.string.register_app), getString(R.string.app_name)));
         wkVBinding.nameEt.addTextChangedListener(new TextWatcher() {
             @Override
