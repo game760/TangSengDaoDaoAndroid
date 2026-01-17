@@ -50,7 +50,7 @@
     <string name="user_agreement">《用户协议》</string>
     <string name="update_api">更改服务器地址</string>
     <string name="web_url">Web版网址</string>
-    <string name="qr_scan_login">二维码扫描登录</string>
+    <string name="qr_scan_login">扫描二维码登录</string>
     <string name="web_side">%s网页端</string>
     <string name="web_scan_login_desc">请使用浏览器访问%s，然后扫描二维码登录。为了您更好的体验，建议使用谷歌浏览器。</string>
     <string name="copied">已复制</string>
