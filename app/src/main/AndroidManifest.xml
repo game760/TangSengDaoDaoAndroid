@@ -3,104 +3,107 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 一、应用查询配置（Android 11+ 包可见性/意图查询） -->
     <queries>
+        <!-- 查询微信应用（com.tencent.mm 为微信包名） -->
         <package android:name="com.tencent.mm" />
     </queries>
 
+    <!-- 自身应用意图查询（相机/视频拍摄） -->
+    <queries package="${applicationId}">
+        <!-- 图片拍摄意图 -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <!-- 视频拍摄意图 -->
+        <intent>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE" />
+        </intent>
+    </queries>
+
+    <!-- 二、即时应用模块配置 -->
     <dist:module dist:instant="true" />
 
+    <!-- 三、应用权限声明（按功能分类整理） -->
+    <!-- 1. 系统级保护权限（需忽略编译警告） -->
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.WRITE_MEDIA_STORAGE"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <!--高德地图新增权限-->
-    <!--这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission
         android:name="android.permission.CHANGE_CONFIGURATION"
         tools:ignore="ProtectedPermissions" />
-    <!-- 可以提高室内定位的精确度 -->
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <!-- 可以提高室内定位的精确度 -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- 2. 定位相关权限（高德地图专用） -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- WiFi状态修改（辅助网络定位） -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 蓝牙管理（提升室内定位精度） -->
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 蓝牙访问（提升室内定位精度） -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 定位额外命令 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 网络粗略定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- GPS精确定位 -->
+
+    <!-- 3. 存储相关权限（兼容Android 13+ 细化权限） -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+        android:maxSdkVersion="32" /> <!-- Android 13以下外部存储读取 -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <!--    Android 13版本适配，细化存储权限-->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <!--    Android 13版本适配，通知权限-->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+        android:maxSdkVersion="32" /> <!-- Android 13以下外部存储写入 -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- 外部存储管理（全权限） -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /> <!-- Android 13+ 图片读取 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- Android 13+ 视频读取 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /> <!-- Android 13+ 音频读取 -->
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 4. 设备与网络相关权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 读取手机状态（IMEI等） -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络访问权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 检测WiFi状态 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- Android O+ 应用安装权限 -->
 
-    <!--视频拍摄权限-->
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 5. 多媒体与相机相关权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 相机访问 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 闪光灯（视频拍摄辅助） -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- 音频设置修改 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 录音权限 -->
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
+    <!-- 6. 应用与系统交互权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> <!-- 通知策略访问 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Android 13+ 发布通知 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 前台服务权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 悬浮窗权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> <!-- 系统覆盖窗权限 -->
+  <!--  <uses-permission android:name="android.permission.READ_CONTACTS" /> --> <!-- 读取联系人 -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 振动权限 -->
+  <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> --> <!-- 拨打电话权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 读取任务栈（小米推送专用） -->
 
-    <uses-permission android:name="android.permission.READ_LOGS"
-        tools:ignore="ProtectedPermissions" />
-    <permission android:name="android.permission.WRITE_SETTINGS"
+    <!-- 7. 自定义系统权限（需忽略保留权限警告） -->
+    <permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ReservedSystemPermission" />
-    <!--华为推送权限-->
-    <!--HMS-SDK引导升级HMS功能，保存下载的升级包需要SD卡写权限 | HMS-SDK upgrade HMS Feature, save downloaded upgrade pack requires SD card Write permission-->
-    <!--检测网络状态 | Detecting Network status-->
-    <!--检测wifi状态 | Detecting WiFi status-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--获取用户手机的IMEI，用来唯一的标识设备。 | Gets the IMEI of the user's phone, used to uniquely identify the device.-->
-    <!-- Android O版本调用安装需要使用该权限 -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-    <!--小米推送-->
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 8. 小米推送专用权限 -->
     <permission
         android:name="${applicationId}.permission.MIPUSH_RECEIVE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE" />
+        android:protectionLevel="signature" /> <!-- 小米推送接收权限（签名保护） -->
+    <uses-permission android:name="${applicationId}.permission.MIPUSH_RECEIVE" /> <!-- 声明使用小米推送权限 -->
 
-    <queries package="${applicationId}">
-        <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE">
+    <!-- 四、硬件功能需求声明（可选/必选配置） -->
+    <uses-feature android:name="android.hardware.camera" /> <!-- 要求设备具备相机功能 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 要求相机具备自动对焦功能 -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" /> <!-- 电话功能（可选，无电话功能设备也可安装） -->
 
-            </action>
-        </intent>
-        <intent>
-            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE">
-
-            </action>
-        </intent>
-    </queries>
-
+    <!-- 五、应用核心配置 -->
+	<!-- 强制竖屏 -->
+	<!-- 允许明文网络请求 -->
     <application
         android:name=".TSApplication"
         android:allowBackup="true"
@@ -110,12 +113,13 @@
         android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_logo_round"
-        android:screenOrientation="portrait"
+        android:screenOrientation="portrait" 
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="false"
         tools:ignore="GoogleAppIndexingWarning">
 
+        <!-- 主活动（应用入口） -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -123,10 +127,17 @@
             android:theme="@style/Theme.FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 前台服务（数据同步类型） -->
+        <service
+            android:name=".ForegroundService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" /> <!-- 不对外暴露，提高安全性 -->
+
+        <!-- 文件提供者（Android N+ 安全文件共享） -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -136,6 +147,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
     </application>
 
 </manifest>
