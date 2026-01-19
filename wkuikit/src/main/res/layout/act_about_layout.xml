@@ -103,7 +103,7 @@
         android:layout_marginBottom="3dp"
         android:background="@drawable/send_chat_text_bg"
         android:gravity="center"
-        android:text="www.xxxx.com"
+        android:text="https://open.queryip.top"
         android:textColor="@color/color999"
         android:textSize="12sp" />
 
