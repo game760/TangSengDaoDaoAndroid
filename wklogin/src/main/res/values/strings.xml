@@ -47,7 +47,7 @@
     <string name="pc_login">Web %s已登入</string>
     <string name="sign_in_agree">我已閱讀並同意</string>
     <string name="privacy_policy">《隱私政策》</string>
-    <string name="user_agreement">《使用者協議》</string>
+    <string name="user_agreement">《用戶協議》</string>
     <string name="update_api">變更伺服器位址</string>
     <string name="web_url">電腦端網址</string>
     <string name="qr_scan_login">掃描二維碼登入</string>
@@ -55,7 +55,7 @@
     <string name="web_scan_login_desc">請使用瀏覽器訪問%s，然後掃描二維碼登入。為了您更好的體驗，建議使用谷歌瀏覽器。</string>
     <string name="copied">已複製</string>
     <string name="phone_error">帳號不合法</string>
-    <string name="agree_auth_tips">請先閱讀並同意《隱私政策》和《使用者協議》</string>
+    <string name="agree_auth_tips">請先閱讀並同意《隱私政策》和《用戶協議》</string>
     <string name="choose_login_type">—  第三方登入  —</string>
     <string name="update_api_ip">以http開頭(如http://192.168.1.200:8090)</string>
     <string name="input_invite_code_must">請輸入邀請碼（必填）</string>
