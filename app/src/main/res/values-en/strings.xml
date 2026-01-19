@@ -8,5 +8,5 @@
     <string name="main_user_agreement">user agreement</string>
     <string name="main_privacy_policy">privacy policy</string>
 		<string name="foreground_service_title">DaoDao</string>
-    <string name="foreground_service_content">Daodao Service Running</string>
+    <string name="foreground_service_content">DaoDao Service is Running</string>
 </resources>
