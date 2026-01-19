@@ -3,10 +3,10 @@
     <string name="no_permissions">授權失敗，APP部分功能將無法使用，請開啟應用程式權限後重試</string>
     <string name="agree">同意</string>
     <string name="disagree">不同意</string>
-    <string name="dialog_title">使用協議&隱私政策</string>
+    <string name="dialog_title">使用協議和隱私政策</string>
     <string name="dialog_content">尊敬的使用者：在使用軟體之前，為了讓您更清楚地瞭解我們如何保護使用者的個人資訊，請您仔細閱讀《使用協議》和《隱私政策》
         \n重點內容：
-        \n1.請閱讀完整使用協議&隱私政策，點選上方藍色連結直接查閱。
+        \n1.請閱讀完整使用協議和隱私政策，點選上方藍色連結直接查閱。
 		\n2.本軟體暫不对中國大陸提供服務，港澳台及海外不在此限制範圍內。</string>
     <string name="main_user_agreement">《使用協議》</string>
     <string name="main_privacy_policy">《隱私政策》</string>
