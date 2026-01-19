@@ -132,6 +132,12 @@
             </intent-filter>
         </activity>
 
+        <!-- 前台服务（数据同步类型） -->
+        <service
+            android:name=".ForegroundService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+			
         <!-- FileProvider配置 -->
         <provider
             android:name="androidx.core.content.FileProvider"
