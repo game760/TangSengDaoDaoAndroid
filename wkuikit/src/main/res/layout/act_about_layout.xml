@@ -103,7 +103,7 @@
         android:layout_marginBottom="3dp"
         android:background="@drawable/send_chat_text_bg"
         android:gravity="center"
-        android:text=" ICP备案号: 0123456789"
+        android:text="www.xxxx.com"
         android:textColor="@color/color999"
         android:textSize="12sp" />
 
@@ -113,7 +113,7 @@
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="50dp"
         android:gravity="center"
-        android:text=" Copyright © 2020-2026 \n我们APP网络科技有限公司 版权所有"
+        android:text=" Copyright © 2020-2026 \n 版權所有"
         android:textColor="@color/color999"
         android:textSize="12sp" />
 </LinearLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="open_notification_title">通知栏权限</string>
-    <string name="open_notification_content">检测到应用还未开启通知栏权限，为了使应用退出后能更好的接受消息，建议您开启通知栏权限。</string>
-    <string name="open_setting">去设置</string>
+    <string name="open_notification_title">通知欄權限</string>
+    <string name="open_notification_content">偵測到應用尚未開啟通知欄權限，為了使應用退出後能更順利地接收訊息，建議您開啟通知欄權限。</string>
+    <string name="open_setting">前往設定</string>
 </resources>
